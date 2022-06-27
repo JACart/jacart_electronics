@@ -79,11 +79,11 @@ class teleop(object):
             if keyval == ord('w'):
                 self.cur_vel = min(self.MAX_SPEED, self.cur_vel + 15)
             elif keyval == ord('a'):
-                self.cur_angle = max(self.MIN_ANGLE, self.cur_angle - 10)
+                self.cur_angle = max(self.MIN_ANGLE, self.cur_angle - 5)
             elif keyval == ord('s'):
                 self.cur_vel = max(0, self.cur_vel - 15)
             elif keyval == ord('d'):
-                self.cur_angle = min(self.MAX_ANGLE, self.cur_angle + 10)
+                self.cur_angle = min(self.MAX_ANGLE, self.cur_angle + 5)
             elif keyval == ord('y'):
                 self.cur_angle = 50
             elif keyval == ord('x'):
