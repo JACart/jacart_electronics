@@ -50,6 +50,18 @@ enum STATE next_state = STATE_DISCONNECTED;
 
 enum COMMAND last_good_command = CMD_NONE;
 
+inline void run_cart()
+{
+  //enable relay
+  digitalWrite(RELAY, HIGH);
+}
+
+inline void kill_cart()
+{
+  //kill relay
+  digitalWrite(RELAY, LOW);
+}
+
 void loop() {
 
   /**
@@ -59,43 +71,38 @@ void loop() {
   if (current_state == STATE_CONNECTED_RUN)
   {
     //enable relay
-    digitalWrite(RELAY, HIGH);
+    run_cart();
   }
   else if (current_state == STATE_DISCONNECTED)
   {
     //kill relay
-    digitalWrite(RELAY, LOW);
+    kill_cart();
   }
   else if (current_state == STATE_CONNECTED_KILL)
   {
     //kill relay
-    digitalWrite(RELAY, LOW);
+    kill_cart();
   }
   else if (current_state = STATE_TIMEOUT_PENDING)
   {
     //repeat last command
     if (last_good_command == CMD_RUN)
     {
-      //enable relay
-      digitalWrite(RELAY, HIGH);
+      run_cart();
     }
     else if (last_good_command == CMD_KILL)
     {
-      //kill relay
-      digitalWrite(RELAY, LOW);
+      kill_cart();
     }
     else
     {
-      //failsafe condition. Kill the cart.
-      //kill relay
-      digitalWrite(RELAY, LOW);
+      kill_cart();
     }
   }
   else
   {
     //failsafe condition
-    //kill relay
-    digitalWrite(RELAY, LOW);
+    kill_cart();
   }
 
 
@@ -180,37 +187,37 @@ void loop() {
 
   //update state variable
   current_state = next_state;
-  
+
   delay(50);
 
-/*
+  /*
 
-  if (currentTime - lastPacketReceived > TIMEOUT) {
-    digitalWrite(RELAY, LOW);
-    lastPacketReceived = currentTime;
-  }
-  while (Xbee.available() > 0) {
-    currentTime = millis();
-
-    // Disconnect failsafe.  Times out if data is not received for TIMEOUT
     if (currentTime - lastPacketReceived > TIMEOUT) {
       digitalWrite(RELAY, LOW);
       lastPacketReceived = currentTime;
     }
+    while (Xbee.available() > 0) {
+      currentTime = millis();
 
-    // Gets Xbee data and converts to an integer value
-    char c = Xbee.read();
-    int val = c - '0';
-    if (val != currentState) {
-      // Relay state triggers
-      if (val == 0) {
+      // Disconnect failsafe.  Times out if data is not received for TIMEOUT
+      if (currentTime - lastPacketReceived > TIMEOUT) {
         digitalWrite(RELAY, LOW);
+        lastPacketReceived = currentTime;
       }
-      if (val == 1) {
-        digitalWrite(RELAY, HIGH);
+
+      // Gets Xbee data and converts to an integer value
+      char c = Xbee.read();
+      int val = c - '0';
+      if (val != currentState) {
+        // Relay state triggers
+        if (val == 0) {
+          digitalWrite(RELAY, LOW);
+        }
+        if (val == 1) {
+          digitalWrite(RELAY, HIGH);
+        }
+        currentState = val;
       }
-      currentState = val;
-    }
-    lastPacketReceived = currentTime;
-  } */
+      lastPacketReceived = currentTime;
+    } */
 }
