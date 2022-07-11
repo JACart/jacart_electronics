@@ -14,23 +14,31 @@
  * 
  * Matty Wolfson - 6/17/2022
  * 
+ * Board type is Itsy 32u4 @ 3V.
+ * 
  */
 #define Xbee Serial1
 #define SWITCH 7
 
-int switchOut = 0;
+const char RUN = '1';
+const char KILL = '0';
+
+int switch_state = 0;
 
 void setup() {
+  Serial.begin(9600);
   Xbee.begin(115200);
   pinMode(SWITCH, INPUT_PULLUP);
 }
 
 void loop() {
-    switchOut = digitalRead(SWITCH);
-    if(switchOut == 0) {
-      Xbee.print('1');
+    switch_state = digitalRead(SWITCH);
+    if(switch_state == 0) {
+      Xbee.print(RUN);
+      Serial.println("Run!");
     } else {
-      Xbee.print('0');
+      Xbee.print(KILL);
+      Serial.println("Kill!");
     }
     delay(250);
 }
