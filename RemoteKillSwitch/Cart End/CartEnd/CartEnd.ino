@@ -24,6 +24,9 @@
    Jason Forsyth - 7/12/2022
 */
 
+//whether to be overly verbose with debug messages
+#define DEBUG 1
+
 //include SoftwareSerial to remove Xbee from built-in RX and TX lines
 #include <SoftwareSerial.h>
 
@@ -79,6 +82,9 @@ void setup() {
 
   //no packets have been received
   lastPacketReceived = 0;
+
+  //turn on internal UART for debugging to console
+  Serial.begin(9600);
 }
 
 /**
@@ -122,28 +128,50 @@ void loop() {
   if (current_state == STATE_CONNECTED_RUN)
   {
     run_cart();
+
+    #ifdef DEBUG
+    Serial.println("RUN!");
+    #endif
   }
   else if (current_state == STATE_DISCONNECTED)
   {
     kill_cart();
+
+    #ifdef DEBUG
+    Serial.println("DISC!");
+    #endif
   }
   else if (current_state == STATE_CONNECTED_KILL)
   {
     kill_cart();
+
+    #ifdef DEBUG
+    Serial.println("KILL!");
+    #endif
   }
   else if (current_state = STATE_TIMEOUT_PENDING)
   {
     if (last_good_command == CMD_RUN)
     {
       run_cart();
+
+      #ifdef DEBUG
+      Serial.println("TIMEOUT!");
+      #endif
     }
     else if (last_good_command == CMD_KILL)
     {
       kill_cart();
+      #ifdef DEBUG
+      Serial.println("TIMEOUT!");
+      #endif
     }
     else //failsafe is last command was CMD_NONE
     {
       kill_cart();
+      #ifdef DEBUG
+      Serial.println("FAILSAFE!");
+      #endif
     }
   }
 
