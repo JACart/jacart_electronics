@@ -172,6 +172,9 @@ void loop() {
   else
   {
     kill_cart();
+    #ifdef DEBUG
+    Serial.println("FAILSAFE!");
+    #endif
   }
 
 
