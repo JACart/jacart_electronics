@@ -114,7 +114,7 @@ inline void kill_cart()
   digitalWrite(RELAY, LOW);
 
   //turn off built-in LED
-  digitalWrite(LED_BUILTIN,HIGH);
+  digitalWrite(LED_BUILTIN,LOW);
 }
 
 //runs forever
