@@ -15,77 +15,100 @@
 
    Matty Wolfson - 6/17/2022
 
+   ---------------------
+
+   Code is re-organized to better separate state and action logic. 
+
    Board is Arduino Uno 5V
+
+   Jason Forsyth - 7/12/2022
 */
 
+// typedef to indicate communicating with Xbee
 #define Xbee Serial
+
+// I/O pin for controlling relay
 #define RELAY 7
 
+/**
+ * Message formats for the RUN and KILL commands
+ */
 const char RUN = '1';
 const char KILL = '0';
 
-//int currentState = 0;
-
+// time stamp in millis for last packet received
 unsigned long lastPacketReceived = 0;
 
-unsigned long TIMEOUT = 2000;  /* Timeout in milliseconds.  Relay will flip if data is not received for period of time.  */
+// Timeout in milliseconds.  Relay will flip if data is not received for period of time. 
+unsigned long TIMEOUT = 2000;  
 
-
+/**
+ * Various states for the Cart's operation
+ * DISCONNECTED: cart is disconnected from radio and timeout has exceeded. Should kill.
+ * CONNECTED_RUN: cart is connected to radio and last received command was RUN. Should run.
+ * CONNECTED_KILL: cart is connected to radio and last received command was KILL. Should kill.
+ * TIMEOUT_PENDING: cart is disconnected from radio, but has not yet timed out. Should repeat last command.
+ */
 enum STATE {STATE_DISCONNECTED, STATE_CONNECTED_RUN, STATE_CONNECTED_KILL, STATE_TIMEOUT_PENDING};
 enum COMMAND {CMD_RUN, CMD_KILL, CMD_NONE};
 
 
 void setup() {
+
+  //set relay pin as OUTPUT. Throw relay.
   pinMode(RELAY, OUTPUT);
   digitalWrite(RELAY, LOW);
 
+  //setup communication with Xbeee
   Xbee.begin(115200);
 
-  lastPacketReceived = millis();
+  //no packets have been received
+  lastPacketReceived = 0;
 }
 
-
+/**
+ * State variables to manage board operation
+ */
 enum STATE current_state = STATE_DISCONNECTED;
 enum STATE next_state = STATE_DISCONNECTED;
 
+//record last good command to be repeated during TIMEOUT
 enum COMMAND last_good_command = CMD_NONE;
 
+//enable cart operation
 inline void run_cart()
 {
-  //enable relay
   digitalWrite(RELAY, HIGH);
 }
 
+//disable cart operation
 inline void kill_cart()
 {
-  //kill relay
   digitalWrite(RELAY, LOW);
 }
 
+//runs forever
 void loop() {
 
   /**
      Perform Action based upon current state
   */
 
+  //execute state action logic
   if (current_state == STATE_CONNECTED_RUN)
   {
-    //enable relay
     run_cart();
   }
   else if (current_state == STATE_DISCONNECTED)
   {
-    //kill relay
     kill_cart();
   }
   else if (current_state == STATE_CONNECTED_KILL)
   {
-    //kill relay
     kill_cart();
   }
   else if (current_state = STATE_TIMEOUT_PENDING)
   {
-    //repeat last command
     if (last_good_command == CMD_RUN)
     {
       run_cart();
@@ -94,14 +117,15 @@ void loop() {
     {
       kill_cart();
     }
-    else
+    else //failsafe is last command was CMD_NONE
     {
       kill_cart();
     }
   }
+
+  //failsafe condition
   else
   {
-    //failsafe condition
     kill_cart();
   }
 
@@ -116,23 +140,23 @@ void loop() {
   // check to see if any bytes are available
   while (Xbee.available() > 0)
   {
+
+    //read a byte
     char c = Xbee.read();
 
-    // if a RUN command was received
-    if (c == RUN)
+    // if a valid command was received
+    if (c == RUN || c == KILL)
     {
-      received_command = CMD_RUN;
-      valid_packet_recevied = true;
-      lastPacketReceived = millis();
-      last_good_command = received_command;
-    }
+      //if command was RUN, assign CMD_RUN; otherwise CMD_KILL
+      received_command = (c==RUN)?CMD_RUN:CMD_KILL;
 
-    // if a KILL command was received
-    else if (c == KILL)
-    {
-      received_command = CMD_KILL;
+      //mark valid packet received
       valid_packet_recevied = true;
+
+      //record received time
       lastPacketReceived = millis();
+
+      //denote last good command for pending state
       last_good_command = received_command;
     }
 
@@ -179,9 +203,11 @@ void loop() {
       next_state = STATE_DISCONNECTED;
     }
   }
+
+  //failsafe state because our logic is wrong
   else
   {
-    //failsafe state because our logic is wrong
+    
     next_state = STATE_DISCONNECTED;
   }
 
