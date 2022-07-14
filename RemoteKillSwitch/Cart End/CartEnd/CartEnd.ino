@@ -24,8 +24,17 @@
    Jason Forsyth - 7/12/2022
 */
 
-// typedef to indicate communicating with Xbee
-#define Xbee Serial
+//include SoftwareSerial to remove Xbee from built-in RX and TX lines
+#include <SoftwareSerial.h>
+
+//new RX line to receive from Xbee
+const int XBEE_RX_PIN = 2;
+
+//new TX line to send to Xbee
+const int XBEE_TX_PIN = 3;
+
+//instantiate SoftwareSerial for Xbee
+SoftwareSerial Xbee (XBEE_RX_PIN,XBEE_TX_PIN);
 
 // I/O pin for controlling relay
 #define RELAY 7
@@ -59,6 +68,12 @@ void setup() {
   pinMode(RELAY, OUTPUT);
   digitalWrite(RELAY, LOW);
 
+  //utilize built-in LED
+  pinMode(LED_BUILTIN,OUTPUT);
+
+  //set default to off
+  digitalWrite(LED_BUILTIN,LOW);
+
   //setup communication with Xbeee
   Xbee.begin(115200);
 
@@ -77,14 +92,23 @@ enum COMMAND last_good_command = CMD_NONE;
 
 //enable cart operation
 inline void run_cart()
-{
+{        
+
+  //enable relay
   digitalWrite(RELAY, HIGH);
+
+  //turn on built-in LED
+  digitalWrite(LED_BUILTIN,HIGH);
 }
 
 //disable cart operation
 inline void kill_cart()
 {
+  //disable relay
   digitalWrite(RELAY, LOW);
+
+  //turn off built-in LED
+  digitalWrite(LED_BUILTIN,HIGH);
 }
 
 //runs forever
