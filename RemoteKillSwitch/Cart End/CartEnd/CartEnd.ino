@@ -149,7 +149,7 @@ void loop() {
     Serial.println("KILL!");
     #endif
   }
-  else if (current_state = STATE_TIMEOUT_PENDING)
+  else if (current_state == STATE_TIMEOUT_PENDING)
   {
     if (last_good_command == CMD_RUN)
     {
