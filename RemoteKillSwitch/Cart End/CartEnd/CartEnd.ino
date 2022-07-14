@@ -25,7 +25,7 @@
 */
 
 //whether to be overly verbose with debug messages
-#define DEBUG 1
+#define DEBUG 0
 
 //include SoftwareSerial to remove Xbee from built-in RX and TX lines
 #include <SoftwareSerial.h>
@@ -129,15 +129,16 @@ void loop() {
   {
     run_cart();
 
-    #ifdef DEBUG
+    #if DEBUG
     Serial.println("RUN!");
     #endif
+    
   }
   else if (current_state == STATE_DISCONNECTED)
   {
     kill_cart();
 
-    #ifdef DEBUG
+    #if DEBUG
     Serial.println("DISC!");
     #endif
   }
@@ -145,7 +146,7 @@ void loop() {
   {
     kill_cart();
 
-    #ifdef DEBUG
+    #if DEBUG
     Serial.println("KILL!");
     #endif
   }
@@ -162,7 +163,7 @@ void loop() {
     else //failsafe is last command was CMD_NONE
     {
       kill_cart();
-      #ifdef DEBUG
+      #if DEBUG
       Serial.println("FAILSAFE!");
       #endif
     }
@@ -172,7 +173,7 @@ void loop() {
   else
   {
     kill_cart();
-    #ifdef DEBUG
+    #if DEBUG
     Serial.println("FAILSAFE!");
     #endif
   }
@@ -256,7 +257,7 @@ void loop() {
     {
       next_state = STATE_DISCONNECTED;
 
-      #ifdef DEBUG
+      #if DEBUG
       Serial.println("TIMEOUT!");
       #endif
     }
