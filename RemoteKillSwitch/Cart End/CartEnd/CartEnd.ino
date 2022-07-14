@@ -33,8 +33,8 @@
 /**
  * Message formats for the RUN and KILL commands
  */
-const char RUN = '1';
-const char KILL = '0';
+const char RUN_MSG = '1';
+const char KILL_MSG = '0';
 
 // time stamp in millis for last packet received
 unsigned long lastPacketReceived = 0;
@@ -145,10 +145,10 @@ void loop() {
     char c = Xbee.read();
 
     // if a valid command was received
-    if (c == RUN || c == KILL)
+    if (c == RUN_MSG || c == KILL_MSG)
     {
       //if command was RUN, assign CMD_RUN; otherwise CMD_KILL
-      received_command = (c==RUN)?CMD_RUN:CMD_KILL;
+      received_command = (c==RUN_MSG)?CMD_RUN:CMD_KILL;
 
       //mark valid packet received
       valid_packet_recevied = true;
