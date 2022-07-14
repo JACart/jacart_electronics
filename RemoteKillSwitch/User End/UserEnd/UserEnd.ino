@@ -20,8 +20,8 @@
 #define Xbee Serial1
 #define SWITCH 7
 
-const char RUN = '1';
-const char KILL = '0';
+const char RUN_MSG = '1';
+const char KILL_MSG = '0';
 
 int switch_state = 0;
 
@@ -34,10 +34,10 @@ void setup() {
 void loop() {
     switch_state = digitalRead(SWITCH);
     if(switch_state == 0) {
-      Xbee.print(RUN);
+      Xbee.print(RUN_MSG);
       Serial.println("Run!");
     } else {
-      Xbee.print(KILL);
+      Xbee.print(KILL_MSG);
       Serial.println("Kill!");
     }
     delay(250);
