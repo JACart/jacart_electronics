@@ -240,10 +240,6 @@ void loop() {
     if ((disconnected_time < TIMEOUT) && (current_state != STATE_DISCONNECTED))
     {
       next_state = STATE_TIMEOUT_PENDING;
-
-      #ifdef DEBUG
-      Serial.println("TIMEOUT PENDING!");
-      #endif
     }
 
     // if we're already in disconnected state and didn't receive anything new
