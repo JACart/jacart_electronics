@@ -154,17 +154,10 @@ void loop() {
     if (last_good_command == CMD_RUN)
     {
       run_cart();
-
-      #ifdef DEBUG
-      Serial.println("TIMEOUT!");
-      #endif
     }
     else if (last_good_command == CMD_KILL)
     {
       kill_cart();
-      #ifdef DEBUG
-      Serial.println("TIMEOUT!");
-      #endif
     }
     else //failsafe is last command was CMD_NONE
     {
@@ -249,10 +242,20 @@ void loop() {
       next_state = STATE_TIMEOUT_PENDING;
     }
 
+    // if we're already in disconnected state and didn't receive anything new
+    else if (current_state == STATE_DISCONNECTED)
+    {
+      next_state = STATE_DISCONNECTED;
+    }
+    
     //timeout has expired. Go to disconnected.
     else
     {
       next_state = STATE_DISCONNECTED;
+
+      #ifdef DEBUG
+      Serial.println("TIMEOUT!");
+      #endif
     }
   }
 
