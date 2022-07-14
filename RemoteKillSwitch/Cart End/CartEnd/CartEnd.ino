@@ -25,7 +25,7 @@
 */
 
 //whether to be overly verbose with debug messages
-#define DEBUG 0
+#define DEBUG 1
 
 //include SoftwareSerial to remove Xbee from built-in RX and TX lines
 #include <SoftwareSerial.h>
