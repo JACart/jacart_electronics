@@ -1,3 +1,8 @@
+# ignore python virtual environment
 venv/
+
+# ignore PyCharm project folder
 .idea/
-*.DS_Store*
+
+# ignore all MACOS files
+*DS_Store*
