@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name Nano-Board-REV2-rescue)(type Legacy)(uri "C:/Users/Owner/Downloads/CWC/KiCAD/JACart/Nano Board REV2-rescue.lib")(options "")(descr ""))
+  (lib (name Relay-Board-REV2-rescue)(type Legacy)(uri "C:/Users/Owner/Downloads/CWC/KiCAD/JACart/Relay Board REV 2/Relay Board REV2-rescue.lib")(options "")(descr ""))
+)

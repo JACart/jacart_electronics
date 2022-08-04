@@ -1,0 +1,614 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 4 4
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L pspice:DIODE D?
+U 1 1 617988DA
+P 3250 2400
+AR Path="/617988DA" Ref="D?"  Part="1" 
+AR Path="/617939C9/617988DA" Ref="D402"  Part="1" 
+F 0 "D402" H 3250 2150 50  0000 R CNN
+F 1 "S1GTR" H 3300 2250 50  0000 R CNN
+F 2 "JACart Parts:S1GTR" H 3250 2400 50  0001 C CNN
+F 3 "~" H 3250 2400 50  0001 C CNN
+	1    3250 2400
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 617988F8
+P 2300 1950
+AR Path="/617988F8" Ref="#PWR?"  Part="1" 
+AR Path="/617939C9/617988F8" Ref="#PWR0402"  Part="1" 
+F 0 "#PWR0402" H 2300 1800 50  0001 C CNN
+F 1 "VCC" H 2315 2123 50  0000 C CNN
+F 2 "" H 2300 1950 50  0001 C CNN
+F 3 "" H 2300 1950 50  0001 C CNN
+	1    2300 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Relay:G5LE-1 K401
+U 1 1 617B9B52
+P 3250 3000
+F 0 "K401" V 3800 3000 50  0000 C CNN
+F 1 "G5LE-1" V 3700 3000 50  0000 C CNN
+F 2 "Relay_THT:Relay_SPDT_Omron-G5LE-1" H 3700 2950 50  0001 L CNN
+F 3 "http://www.omron.com/ecb/products/pdf/en-g5le.pdf" H 3250 3000 50  0001 C CNN
+	1    3250 3000
+	0    1    1    0   
+$EndComp
+$Comp
+L pspice:DIODE D?
+U 1 1 61803630
+P 4750 2400
+AR Path="/61803630" Ref="D?"  Part="1" 
+AR Path="/617939C9/61803630" Ref="D404"  Part="1" 
+F 0 "D404" H 4700 2150 50  0000 R CNN
+F 1 "S1GTR" H 4800 2250 50  0000 R CNN
+F 2 "JACart Parts:S1GTR" H 4750 2400 50  0001 C CNN
+F 3 "~" H 4750 2400 50  0001 C CNN
+	1    4750 2400
+	-1   0    0    1   
+$EndComp
+$Comp
+L Relay:G5LE-1 K403
+U 1 1 61803665
+P 4750 3000
+F 0 "K403" V 5300 3000 50  0000 C CNN
+F 1 "G5LE-1" V 5200 3000 50  0000 C CNN
+F 2 "Relay_THT:Relay_SPDT_Omron-G5LE-1" H 5200 2950 50  0001 L CNN
+F 3 "http://www.omron.com/ecb/products/pdf/en-g5le.pdf" H 4750 3000 50  0001 C CNN
+	1    4750 3000
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 61809E33
+P 6750 5150
+AR Path="/61809E33" Ref="R?"  Part="1" 
+AR Path="/617939C9/61809E33" Ref="R403"  Part="1" 
+F 0 "R403" H 6820 5196 50  0000 L CNN
+F 1 "174 Ohm" H 6820 5105 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" V 6680 5150 50  0001 C CNN
+F 3 "~" H 6750 5150 50  0001 C CNN
+	1    6750 5150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Isolator:SFH617A-1 U?
+U 1 1 61809E39
+P 7400 5600
+AR Path="/61809E39" Ref="U?"  Part="1" 
+AR Path="/617939C9/61809E39" Ref="U402"  Part="1" 
+F 0 "U402" H 7400 5925 50  0000 C CNN
+F 1 "SFH617A-1" H 7400 5834 50  0000 C CNN
+F 2 "Package_DIP:DIP-4_W7.62mm" H 7200 5400 50  0001 L CIN
+F 3 "http://www.vishay.com/docs/83740/sfh617a.pdf" H 7400 5600 50  0001 L CNN
+	1    7400 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:DIODE D?
+U 1 1 61809E3F
+P 8800 5000
+AR Path="/61809E3F" Ref="D?"  Part="1" 
+AR Path="/617939C9/61809E3F" Ref="D408"  Part="1" 
+F 0 "D408" V 8846 4872 50  0000 R CNN
+F 1 "S1GTR" V 8755 4872 50  0000 R CNN
+F 2 "JACart Parts:S1GTR" H 8800 5000 50  0001 C CNN
+F 3 "~" H 8800 5000 50  0001 C CNN
+	1    8800 5000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 61809E4B
+P 8050 5700
+AR Path="/61809E4B" Ref="R?"  Part="1" 
+AR Path="/617939C9/61809E4B" Ref="R404"  Part="1" 
+F 0 "R404" V 7843 5700 50  0000 C CNN
+F 1 "178 Ohm" V 7934 5700 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" V 7980 5700 50  0001 C CNN
+F 3 "~" H 8050 5700 50  0001 C CNN
+	1    8050 5700
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61809E57
+P 8800 6050
+AR Path="/61809E57" Ref="#PWR?"  Part="1" 
+AR Path="/617939C9/61809E57" Ref="#PWR0405"  Part="1" 
+F 0 "#PWR0405" H 8800 5800 50  0001 C CNN
+F 1 "GND" H 8805 5877 50  0000 C CNN
+F 2 "" H 8800 6050 50  0001 C CNN
+F 3 "" H 8800 6050 50  0001 C CNN
+	1    8800 6050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 61809E5D
+P 7700 4600
+AR Path="/61809E5D" Ref="#PWR?"  Part="1" 
+AR Path="/617939C9/61809E5D" Ref="#PWR0404"  Part="1" 
+F 0 "#PWR0404" H 7700 4450 50  0001 C CNN
+F 1 "VCC" H 7715 4773 50  0000 C CNN
+F 2 "" H 7700 4600 50  0001 C CNN
+F 3 "" H 7700 4600 50  0001 C CNN
+	1    7700 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7700 5500 7700 4800
+Wire Wire Line
+	6750 5300 6750 5500
+Wire Wire Line
+	6750 5500 7100 5500
+Wire Wire Line
+	7100 5700 6700 5700
+Wire Wire Line
+	8200 5700 8500 5700
+Wire Wire Line
+	7900 5700 7700 5700
+Wire Wire Line
+	8800 5900 8800 6050
+Wire Wire Line
+	8800 4800 7700 4800
+Wire Wire Line
+	8800 5200 8800 5400
+Connection ~ 8800 4800
+Wire Wire Line
+	6100 5700 6400 5700
+$Comp
+L Relay:G5LE-1 K406
+U 1 1 61809E74
+P 9600 5100
+F 0 "K406" H 10030 5146 50  0000 L CNN
+F 1 "G5LE-1" H 10030 5055 50  0000 L CNN
+F 2 "Relay_THT:Relay_SPDT_Omron-G5LE-1" H 10050 5050 50  0001 L CNN
+F 3 "http://www.omron.com/ecb/products/pdf/en-g5le.pdf" H 9600 5100 50  0001 C CNN
+	1    9600 5100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9400 5400 8800 5400
+Connection ~ 8800 5400
+Wire Wire Line
+	8800 5400 8800 5500
+Wire Wire Line
+	8800 4800 9400 4800
+$Comp
+L Relay:G5LE-1 K404
+U 1 1 6180E1F7
+P 6200 3000
+F 0 "K404" V 6750 3000 50  0000 C CNN
+F 1 "G5LE-1" V 6650 3000 50  0000 C CNN
+F 2 "Relay_THT:Relay_SPDT_Omron-G5LE-1" H 6650 2950 50  0001 L CNN
+F 3 "http://www.omron.com/ecb/products/pdf/en-g5le.pdf" H 6200 3000 50  0001 C CNN
+	1    6200 3000
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 61813D47
+P 1650 5050
+AR Path="/61813D47" Ref="R?"  Part="1" 
+AR Path="/617939C9/61813D47" Ref="R401"  Part="1" 
+F 0 "R401" H 1720 5096 50  0000 L CNN
+F 1 "174 Ohm" H 1720 5005 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" V 1580 5050 50  0001 C CNN
+F 3 "~" H 1650 5050 50  0001 C CNN
+	1    1650 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Isolator:SFH617A-1 U?
+U 1 1 61813D4D
+P 2300 5500
+AR Path="/61813D4D" Ref="U?"  Part="1" 
+AR Path="/617939C9/61813D4D" Ref="U401"  Part="1" 
+F 0 "U401" H 2300 5825 50  0000 C CNN
+F 1 "SFH617A-1" H 2300 5734 50  0000 C CNN
+F 2 "Package_DIP:DIP-4_W7.62mm" H 2100 5300 50  0001 L CIN
+F 3 "http://www.vishay.com/docs/83740/sfh617a.pdf" H 2300 5500 50  0001 L CNN
+	1    2300 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:DIODE D?
+U 1 1 61813D53
+P 3700 4900
+AR Path="/61813D53" Ref="D?"  Part="1" 
+AR Path="/617939C9/61813D53" Ref="D403"  Part="1" 
+F 0 "D403" V 3746 4772 50  0000 R CNN
+F 1 "S1GTR" V 3655 4772 50  0000 R CNN
+F 2 "JACart Parts:S1GTR" H 3700 4900 50  0001 C CNN
+F 3 "~" H 3700 4900 50  0001 C CNN
+	1    3700 4900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 61813D5F
+P 2950 5600
+AR Path="/61813D5F" Ref="R?"  Part="1" 
+AR Path="/617939C9/61813D5F" Ref="R402"  Part="1" 
+F 0 "R402" V 2743 5600 50  0000 C CNN
+F 1 "178 Ohm" V 2834 5600 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder" V 2880 5600 50  0001 C CNN
+F 3 "~" H 2950 5600 50  0001 C CNN
+	1    2950 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61813D6B
+P 3700 5950
+AR Path="/61813D6B" Ref="#PWR?"  Part="1" 
+AR Path="/617939C9/61813D6B" Ref="#PWR0403"  Part="1" 
+F 0 "#PWR0403" H 3700 5700 50  0001 C CNN
+F 1 "GND" H 3705 5777 50  0000 C CNN
+F 2 "" H 3700 5950 50  0001 C CNN
+F 3 "" H 3700 5950 50  0001 C CNN
+	1    3700 5950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 61813D71
+P 2600 4600
+AR Path="/61813D71" Ref="#PWR?"  Part="1" 
+AR Path="/617939C9/61813D71" Ref="#PWR0401"  Part="1" 
+F 0 "#PWR0401" H 2600 4450 50  0001 C CNN
+F 1 "VCC" H 2615 4773 50  0000 C CNN
+F 2 "" H 2600 4600 50  0001 C CNN
+F 3 "" H 2600 4600 50  0001 C CNN
+	1    2600 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2600 5400 2600 4700
+Wire Wire Line
+	1650 5200 1650 5400
+Wire Wire Line
+	1650 5400 2000 5400
+Wire Wire Line
+	2000 5600 1600 5600
+Wire Wire Line
+	3100 5600 3400 5600
+Wire Wire Line
+	2800 5600 2600 5600
+Wire Wire Line
+	3700 5800 3700 5950
+Wire Wire Line
+	3700 4700 2600 4700
+Wire Wire Line
+	3700 5100 3700 5300
+Connection ~ 3700 4700
+$Comp
+L Relay:G5LE-1 K402
+U 1 1 61813D88
+P 4500 5000
+F 0 "K402" H 4930 5046 50  0000 L CNN
+F 1 "G5LE-1" H 4930 4955 50  0000 L CNN
+F 2 "Relay_THT:Relay_SPDT_Omron-G5LE-1" H 4950 4950 50  0001 L CNN
+F 3 "http://www.omron.com/ecb/products/pdf/en-g5le.pdf" H 4500 5000 50  0001 C CNN
+	1    4500 5000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4300 5300 3700 5300
+Connection ~ 3700 5300
+Wire Wire Line
+	3700 5300 3700 5400
+Wire Wire Line
+	3700 4700 4300 4700
+$Comp
+L Device:Q_NPN_BEC Q401
+U 1 1 6182B419
+P 3600 5600
+F 0 "Q401" H 3791 5646 50  0000 L CNN
+F 1 "Q_NPN_BEC" H 3791 5555 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-126-3_Vertical" H 3800 5700 50  0001 C CNN
+F 3 "~" H 3600 5600 50  0001 C CNN
+	1    3600 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Q_NPN_BEC Q402
+U 1 1 6182CCF7
+P 8700 5700
+F 0 "Q402" H 8891 5746 50  0000 L CNN
+F 1 "Q_NPN_BEC" H 8891 5655 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-126-3_Vertical" H 8900 5800 50  0001 C CNN
+F 3 "~" H 8700 5700 50  0001 C CNN
+	1    8700 5700
+	1    0    0    -1  
+$EndComp
+Text HLabel 1650 4500 1    50   Output ~ 0
+IN5
+Text HLabel 6750 4550 1    50   Output ~ 0
+IN6
+Text GLabel 2850 3200 0    50   Output ~ 0
+COM1
+Text GLabel 3650 3100 2    50   Output ~ 0
+NC1
+Text GLabel 3650 3300 2    50   Output ~ 0
+NO1
+Text GLabel 4350 3200 0    50   Output ~ 0
+COM2
+Text GLabel 5150 3100 2    50   Output ~ 0
+NC2
+Text GLabel 5150 3300 2    50   Output ~ 0
+NO2
+Text GLabel 5800 3200 0    50   Output ~ 0
+COM3
+Text GLabel 6600 3100 2    50   Output ~ 0
+NC3
+Text GLabel 6600 3300 2    50   Output ~ 0
+NO3
+Text GLabel 7150 3200 0    50   Output ~ 0
+COM4
+Text GLabel 7950 3100 2    50   Output ~ 0
+NC4
+Text GLabel 7950 3300 2    50   Output ~ 0
+NO4
+Text GLabel 4700 5400 0    50   Output ~ 0
+COM5
+Text GLabel 4600 4600 0    50   Output ~ 0
+NC5
+Text GLabel 4800 4600 2    50   Output ~ 0
+NO5
+Text GLabel 9800 5500 0    50   Output ~ 0
+COM6
+Text GLabel 9700 4650 0    50   Output ~ 0
+NC6
+Text GLabel 9900 4650 2    50   Output ~ 0
+NO6
+Wire Wire Line
+	9800 5400 9800 5500
+Wire Wire Line
+	9700 4800 9700 4650
+Wire Wire Line
+	9900 4650 9900 4800
+Wire Wire Line
+	4700 5300 4700 5400
+Wire Wire Line
+	4600 4700 4600 4600
+Wire Wire Line
+	4800 4600 4800 4700
+$Comp
+L Device:LED D401
+U 1 1 6192612E
+P 1450 5600
+F 0 "D401" H 1443 5817 50  0000 C CNN
+F 1 "LED" H 1443 5726 50  0000 C CNN
+F 2 "Diode_SMD:D_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 1450 5600 50  0001 C CNN
+F 3 "~" H 1450 5600 50  0001 C CNN
+	1    1450 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 5600 1300 5600
+$Comp
+L Device:LED D406
+U 1 1 6192E88A
+P 6550 5700
+F 0 "D406" H 6543 5917 50  0000 C CNN
+F 1 "LED" H 6543 5826 50  0000 C CNN
+F 2 "Diode_SMD:D_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 6550 5700 50  0001 C CNN
+F 3 "~" H 6550 5700 50  0001 C CNN
+	1    6550 5700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2300 1950 2950 1950
+Wire Wire Line
+	2950 2800 2950 2400
+Connection ~ 2950 1950
+Wire Wire Line
+	2950 1950 4450 1950
+Wire Wire Line
+	3550 2800 3550 2400
+Wire Wire Line
+	3550 2400 3450 2400
+Wire Wire Line
+	3050 2400 2950 2400
+Connection ~ 2950 2400
+Wire Wire Line
+	2950 2400 2950 1950
+Wire Wire Line
+	3550 2400 3550 1850
+Connection ~ 3550 2400
+Wire Wire Line
+	4450 2800 4450 2400
+Connection ~ 4450 1950
+Wire Wire Line
+	4450 1950 5900 1950
+Wire Wire Line
+	5050 2800 5050 2400
+Wire Wire Line
+	4550 2400 4450 2400
+Connection ~ 4450 2400
+Wire Wire Line
+	4450 2400 4450 1950
+Wire Wire Line
+	4950 2400 5050 2400
+Connection ~ 5050 2400
+Wire Wire Line
+	5050 2400 5050 1850
+Wire Wire Line
+	5900 2800 5900 2400
+Connection ~ 5900 1950
+Wire Wire Line
+	6500 2800 6500 2400
+$Comp
+L pspice:DIODE D?
+U 1 1 619E75D7
+P 6200 2400
+AR Path="/619E75D7" Ref="D?"  Part="1" 
+AR Path="/617939C9/619E75D7" Ref="D405"  Part="1" 
+F 0 "D405" H 6150 2150 50  0000 R CNN
+F 1 "S1GTR" H 6250 2250 50  0000 R CNN
+F 2 "JACart Parts:S1GTR" H 6200 2400 50  0001 C CNN
+F 3 "~" H 6200 2400 50  0001 C CNN
+	1    6200 2400
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6000 2400 5900 2400
+Connection ~ 5900 2400
+Wire Wire Line
+	5900 2400 5900 1950
+Wire Wire Line
+	6400 2400 6500 2400
+Connection ~ 6500 2400
+Wire Wire Line
+	6500 2400 6500 1850
+Wire Wire Line
+	5900 1950 7250 1950
+$Comp
+L Relay:G5LE-1 K405
+U 1 1 619F9167
+P 7550 3000
+F 0 "K405" V 8100 3000 50  0000 C CNN
+F 1 "G5LE-1" V 8000 3000 50  0000 C CNN
+F 2 "Relay_THT:Relay_SPDT_Omron-G5LE-1" H 8000 2950 50  0001 L CNN
+F 3 "http://www.omron.com/ecb/products/pdf/en-g5le.pdf" H 7550 3000 50  0001 C CNN
+	1    7550 3000
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7250 2800 7250 2400
+Wire Wire Line
+	7850 2800 7850 2400
+$Comp
+L pspice:DIODE D?
+U 1 1 61A028A0
+P 7550 2400
+AR Path="/61A028A0" Ref="D?"  Part="1" 
+AR Path="/617939C9/61A028A0" Ref="D407"  Part="1" 
+F 0 "D407" H 7500 2150 50  0000 R CNN
+F 1 "S1GTR" H 7600 2250 50  0000 R CNN
+F 2 "JACart Parts:S1GTR" H 7550 2400 50  0001 C CNN
+F 3 "~" H 7550 2400 50  0001 C CNN
+	1    7550 2400
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7350 2400 7250 2400
+Connection ~ 7250 2400
+Wire Wire Line
+	7250 2400 7250 1950
+Wire Wire Line
+	7750 2400 7850 2400
+Connection ~ 7850 2400
+Wire Wire Line
+	7850 2400 7850 1850
+Wire Wire Line
+	7250 3200 7150 3200
+Wire Wire Line
+	7850 3100 7950 3100
+Wire Wire Line
+	7950 3300 7850 3300
+Wire Wire Line
+	6600 3100 6500 3100
+Wire Wire Line
+	6500 3300 6600 3300
+Wire Wire Line
+	5900 3200 5800 3200
+Wire Wire Line
+	5150 3100 5050 3100
+Wire Wire Line
+	5050 3300 5150 3300
+Wire Wire Line
+	4450 3200 4350 3200
+Wire Wire Line
+	3650 3100 3550 3100
+Wire Wire Line
+	3550 3300 3650 3300
+Wire Wire Line
+	2950 3200 2850 3200
+Text HLabel 3450 1850 0    50   Output ~ 0
+MasterSwitch
+Wire Wire Line
+	3450 1850 3550 1850
+Connection ~ 3550 1850
+Wire Wire Line
+	3550 1850 5050 1850
+Connection ~ 5050 1850
+Wire Wire Line
+	5050 1850 6500 1850
+Connection ~ 6500 1850
+Wire Wire Line
+	6500 1850 7850 1850
+Text GLabel 9200 1100 0    50   Output ~ 0
++5V
+$Comp
+L power:VCC #PWR?
+U 1 1 617C77E3
+P 9600 1100
+AR Path="/6181850E/617C77E3" Ref="#PWR?"  Part="1" 
+AR Path="/617939C9/617C77E3" Ref="#PWR0406"  Part="1" 
+F 0 "#PWR0406" H 9600 950 50  0001 C CNN
+F 1 "VCC" H 9615 1273 50  0000 C CNN
+F 2 "" H 9600 1100 50  0001 C CNN
+F 3 "" H 9600 1100 50  0001 C CNN
+	1    9600 1100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9200 1100 9600 1100
+Text Notes 2400 2050 0    50   ~ 0
+LED^
+Wire Wire Line
+	1650 4500 1650 4900
+Wire Wire Line
+	2600 4700 2600 4600
+Connection ~ 2600 4700
+$Comp
+L power:GND #PWR?
+U 1 1 61827550
+P 1000 5600
+AR Path="/61827550" Ref="#PWR?"  Part="1" 
+AR Path="/617939C9/61827550" Ref="#PWR0101"  Part="1" 
+F 0 "#PWR0101" H 1000 5350 50  0001 C CNN
+F 1 "GND" H 1005 5427 50  0000 C CNN
+F 2 "" H 1000 5600 50  0001 C CNN
+F 3 "" H 1000 5600 50  0001 C CNN
+	1    1000 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6750 4550 6750 5000
+Wire Wire Line
+	7700 4600 7700 4800
+Connection ~ 7700 4800
+$Comp
+L power:GND #PWR?
+U 1 1 6182BEEE
+P 6100 5700
+AR Path="/6182BEEE" Ref="#PWR?"  Part="1" 
+AR Path="/617939C9/6182BEEE" Ref="#PWR0102"  Part="1" 
+F 0 "#PWR0102" H 6100 5450 50  0001 C CNN
+F 1 "GND" H 6105 5527 50  0000 C CNN
+F 2 "" H 6100 5700 50  0001 C CNN
+F 3 "" H 6100 5700 50  0001 C CNN
+	1    6100 5700
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
