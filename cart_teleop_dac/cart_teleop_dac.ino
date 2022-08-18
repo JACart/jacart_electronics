@@ -13,6 +13,8 @@
 
        5/12/2022: modified by Matty Wolfson to tune steering PIDs
 
+       8/18/2022: implemented message passing system to ROS
+
        &&&&& NOTE: You must use the Arduino Nano "OLD BOOTLOADER" setting when programming this device!!! Tools -> Processor -> ATMega 328P (Old Bootloader)
 */
 
@@ -60,24 +62,17 @@ const int UPPER_PID_BOUND = 255;
 /* Known messages to send to ROS */
 const String STATUS_MESSAGE = "STS";
 
-inline void send_message_to_ros(String _command, ...)
-{
-
-  // list of arguements
-  va_list args;
-
-  // grab thte number of arguments
-  int num_args=0;
-  va_start(args,num_args);
-
+/* General message handler for packing up things */
+void send_message_to_ros(String _command, int* params, int num_params)
+{  
   // param sum for checksum calculation
   int param_sum=0;
 
   // construct message from the arguments
   String message_to_send = _command;
-  for (int i=0;i>num_args;i++)
+  for (int i=0;i<num_params;i++)
   {
-    int argument = va_arg(args,int);
+    int argument = params[i];
     
     message_to_send+=","+String(argument);
     param_sum+=argument;
@@ -92,6 +87,13 @@ inline void send_message_to_ros(String _command, ...)
   // send message
   Serial.println(message_to_send);
 }
+
+inline void send_status_message(int _current_steer_pot, int _steer_target, int _throttle_target, int _break_target)
+{
+  int params[]={_current_steer_pot, _steer_target, _throttle_target, _break_target};
+  send_message_to_ros(STATUS_MESSAGE,params,4);
+}
+
 
 /*
    Input: currentSteeringPot
@@ -169,7 +171,7 @@ void loop()
   // implement basic heart beat system
   while (abs(millis() - last_heart_beat) > 50)
   {
-    send_message_to_ros(STATUS_MESSAGE,(int)currentSteeringPot,steeringTarget,throttleTarget,brakeTarget);
+    send_status_message((int)currentSteeringPot,steeringTarget,throttleTarget,brakeTarget);
 
     last_heart_beat = millis();
     heart_beat_counter++;
