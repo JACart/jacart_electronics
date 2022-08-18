@@ -9,3 +9,7 @@ cart_teleop_dac:/ Updated Arduino teleop code that utilizes DACs instead of PWM 
 python_teleop:/ Stand-alone python controller for teleop_board
 
 libs:/ Require libraries for operating the Arudino teleop code
+
+**Known/Active Branches*
+
+message_passing: branch for developing more robust message passing system to ROS from Arduino.
