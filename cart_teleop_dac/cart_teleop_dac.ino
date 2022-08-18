@@ -57,6 +57,42 @@ const float STEER_VOLT_MIN_OFFSET = .3;
 const int LOWER_PID_BOUND = -255;
 const int UPPER_PID_BOUND = 255;
 
+/* Known messages to send to ROS */
+const String STATUS_MESSAGE = "STS";
+
+inline void send_message_to_ros(String _command, ...)
+{
+
+  // list of arguements
+  va_list args;
+
+  // grab thte number of arguments
+  int num_args=0;
+  va_start(args,num_args);
+
+  // param sum for checksum calculation
+  int param_sum=0;
+
+  // construct message from the arguments
+  String message_to_send = _command;
+  for (int i=0;i>num_args;i++)
+  {
+    int argument = va_arg(args,int);
+    
+    message_to_send+=","+String(argument);
+    param_sum+=argument;
+  }
+
+  // calculate checksum
+  int checksum = 1024 - param_sum;
+
+  // append checksum to message to message
+  message_to_send +=","+String(checksum);
+
+  // send message
+  Serial.println(message_to_send);
+}
+
 /*
    Input: currentSteeringPot
    Output: pidSignal
@@ -133,11 +169,7 @@ void loop()
   // implement basic heart beat system
   while (abs(millis() - last_heart_beat) > 50)
   {
-    Serial.print(steeringTarget);
-    Serial.print(",");
-    Serial.print(throttleTarget);
-    Serial.print(",");
-    Serial.println(brakeTarget);
+    send_message_to_ros(STATUS_MESSAGE,(int)currentSteeringPot,steeringTarget,throttleTarget,brakeTarget);
 
     last_heart_beat = millis();
     heart_beat_counter++;
