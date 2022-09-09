@@ -6,13 +6,21 @@ User radio will constantly transmit ASCII character '1' or '0' to indicate wheth
 
 Network parameters are:
 
-PAN ID:
+PAN ID: 0xABC
 
-Channel:
+Channel: 16 (fixed by firmware)
 
-User Radio MY_ID:
+User Radio MY: 0x (fixed by firmware)
+User Radio NI: USER
+User Radio DH: 0x13A200
+User Radio DL: 0x406985D5 (such that will direct transmit to Cart)
 
-Cart Radio MY_ID:
+Cart Radio MY: 0x738B (fixed by firmware)
+Cart Radio NI: CART
+Cart Radio DH: 0x0
+Cart Radio DL: 0xFFFF (messages will be broadcast)
+
+**Legacy radio firmware must be installed in XCTU to recognize the radio**
 
 <img src = "kill-switch-fsm.png" />
 
