@@ -78,7 +78,7 @@ void setup() {
   digitalWrite(LED_BUILTIN,LOW);
 
   //setup communication with Xbeee
-  Xbee.begin(115200);
+  Xbee.begin(9600);
 
   //no packets have been received
   lastPacketReceived = 0;
