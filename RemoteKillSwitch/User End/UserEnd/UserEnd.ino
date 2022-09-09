@@ -14,11 +14,26 @@
 
    Matty Wolfson - 6/17/2022
 
-   Board type is Itsy 32u4 @ 3V.
+   Board type is Itsy 32u4 @ 5V.
+
+   9/9/2022 - Modifications to pins made for Bobby's new board.
 
 */
-#define Xbee Serial1
-#define SWITCH 7
+//include SoftwareSerial to remove Xbee from built-in RX and TX lines
+#include <SoftwareSerial.h>
+
+//new RX line to receive from Xbee
+const int XBEE_RX_PIN = 14;
+
+//new TX line to send to Xbee
+const int XBEE_TX_PIN = 16;
+
+//instantiate SoftwareSerial for Xbee
+SoftwareSerial Xbee (XBEE_RX_PIN,XBEE_TX_PIN);
+
+
+//GPIO pin that is connected to the switch
+#define SWITCH 12
 
 const char RUN_MSG = '1';
 const char KILL_MSG = '0';
@@ -27,7 +42,7 @@ int switch_state = 0;
 
 void setup() {
   Serial.begin(9600);
-  Xbee.begin(115200);
+  Xbee.begin(9600);
   pinMode(SWITCH, INPUT_PULLUP);
 
   //use built-in RED LED to indicate switch state
