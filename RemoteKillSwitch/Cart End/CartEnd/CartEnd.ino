@@ -136,9 +136,7 @@ void loop() {
   {
     run_cart();
 
-#if DEBUG
     Serial.println("RUN!");
-#endif
 
     digitalWrite(LED_RED, LOW);
     digitalWrite(LED_GREEN, HIGH);
@@ -149,9 +147,7 @@ void loop() {
   {
     kill_cart();
 
-#if DEBUG
     Serial.println("DISC!");
-#endif
 
     digitalWrite(LED_RED, LOW);
     digitalWrite(LED_GREEN, LOW);
