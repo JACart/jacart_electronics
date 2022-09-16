@@ -22,10 +22,10 @@
 //include SoftwareSerial to remove Xbee from built-in RX and TX lines
 #include <SoftwareSerial.h>
 
-//new RX line to receive from Xbee
+//new RX line to receive from Xbee (DOUT)
 const int XBEE_RX_PIN = 14;
 
-//new TX line to send to Xbee
+//new TX line to send to Xbee (DIN)
 const int XBEE_TX_PIN = 16;
 
 //instantiate SoftwareSerial for Xbee
