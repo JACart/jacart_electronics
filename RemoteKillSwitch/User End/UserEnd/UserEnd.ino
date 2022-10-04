@@ -59,11 +59,13 @@ void setup() {
   pinMode(LED_GROUND,OUTPUT);
   pinMode(LED_GREEN,OUTPUT);
   pinMode(LED_BLUE,OUTPUT);
+  pinMode(LED_BUILTIN,OUTPUT);
 
   digitalWrite(LED_RED,LOW);
   digitalWrite(LED_GROUND,LOW);
   digitalWrite(LED_GREEN,LOW);
   digitalWrite(LED_BLUE,LOW);
+  digitalWrite(LED_BUILTIN,LOW);
   
 }
 
@@ -86,6 +88,9 @@ void loop() {
     digitalWrite(LED_GREEN,HIGH);
     digitalWrite(LED_BLUE,LOW);
 
+    //turn on built-in LED so can see if switch is active
+    digitalWrite(LED_BUILTIN,HIGH);
+
   } 
   else {
 
@@ -99,6 +104,9 @@ void loop() {
     digitalWrite(LED_RED, HIGH);
     digitalWrite(LED_GREEN,LOW);
     digitalWrite(LED_BLUE,LOW);
+
+    //turn off built-in LED so can see if switch is active
+    digitalWrite(LED_BUILTIN,LOW);
   }
 
   //loop 4x a second
