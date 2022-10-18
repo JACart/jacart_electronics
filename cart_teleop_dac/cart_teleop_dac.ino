@@ -39,8 +39,8 @@ const int LOWER_STEER_BOUND = 0;
 const int UPPER_STEER_BOUND = 4096;
 
 /* empirical potentiometer bounds */
-const int LOWER_STEER_POT_BOUND = 310;
-const int UPPER_STEER_POT_BOUND = 620;
+const int LOWER_STEER_POT_BOUND = 370;
+const int UPPER_STEER_POT_BOUND = 650;
 
 /* Neutral steer value */
 const float NEUTRAL_STEER = 2.5; // voltage to indicate "no turn" steering
